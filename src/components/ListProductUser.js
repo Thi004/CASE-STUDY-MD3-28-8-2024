@@ -1,0 +1,39 @@
+import {Link} from "react-router-dom";
+import {useEffect, useState} from "react";
+import axios from "axios";
+import '../style/ListProductUser.css'
+
+function ListProductUser() {
+    const [list, setList] = useState([]);
+    useEffect(() => {
+        axios.get('http://localhost:3000/products').then(data => {
+            setList(data.data)
+        })
+    }, [])
+    return (
+        <div className="row">
+            <div className="col-12"><h4>Top Product</h4>
+                <div className="row">
+                    {list.map(item => (
+                        <>
+                            <div className="col-4 mt-2">
+                                <div className="card">
+                                    <img src= {item.images[0]} className="card-img-top" alt="..."/>
+                                    <div className="card-body">
+                                        <h5 className="card-title">{item.name}</h5>
+                                        <p className="card-text">{item.category}</p>
+                                        <p className="card-text">{item.price}</p>
+                                        <Link to={'/detail/' + item.id}>Go Detail Product</Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </>
+                    ))}
+                </div>
+
+            </div>
+        </div>
+    )
+}
+
+export default ListProductUser
