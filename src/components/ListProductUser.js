@@ -23,7 +23,7 @@ function ListProductUser() {
                                         <h5 className="card-title">{item.name}</h5>
                                         <p className="card-text">{item.category}</p>
                                         <p className="card-text">{item.price}</p>
-                                        <Link to={'/detail/' + item.id}>Go Detail Product</Link>
+                                        <Link to={'/cart/' + item.id}>Add ShoppingCart</Link>
                                     </div>
                                 </div>
                             </div>

@@ -10,7 +10,6 @@ function Others() {
                         <button type={'submit'}>Go</button>
                     </form>
                 </div>
-
                 <div className={'icon-cart'}>
                     <img id={'cart'}
                          src="https://png.pngtree.com/png-clipart/20200224/original/pngtree-cart-icon-for-your-project-png-image_5214151.jpg"
