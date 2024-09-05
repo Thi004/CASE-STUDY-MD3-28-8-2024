@@ -1,6 +1,10 @@
 import {Link} from "react-router-dom";
+import CartIcon from "../icons/CartIcon";
+import {useContext} from "react";
+import {MyContext} from "./MyContext";
 
 function Others() {
+    const {cart} = useContext(MyContext)
     return (
         <>
             <div className={'other'}>
@@ -10,11 +14,10 @@ function Others() {
                         <button type={'submit'}>Go</button>
                     </form>
                 </div>
-                <div className={'icon-cart'}>
-                    <img id={'cart'}
-                         src="https://png.pngtree.com/png-clipart/20200224/original/pngtree-cart-icon-for-your-project-png-image_5214151.jpg"
-                         alt=""/>
-                </div>
+                <Link to="cart">
+                    <CartIcon/>
+                    <span>{cart.length}</span>
+                </Link>
                 <div className={'icon-user'}>
                     <Link to={'/login'}><img id={'user'} src="https://cdn-icons-png.flaticon.com/512/1077/1077063.png"
                                              alt=""/></Link>

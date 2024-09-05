@@ -23,7 +23,7 @@ function App() {
                     <Route element={<Admin/>} path={'admin'}>
                         <Route element={<ListProductAdmin/>} path={'list'}></Route>
                         <Route element={<Create/>} path={'create'}></Route>
-                        <Route element={<Update/>} path={'update'}></Route>
+                        <Route element={<Update/>} path={'update/:id'}></Route>
                     </Route>
                 </Route>
             </Routes>

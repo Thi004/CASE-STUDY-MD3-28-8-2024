@@ -1,7 +1,9 @@
-import {Link} from "react-router-dom";
+
 import {useEffect, useState} from "react";
 import axios from "axios";
 import '../style/ListProductUser.css'
+import {useCart} from "../hooks/useCart";
+import {formatCurrency} from "../format/FormatCurrency";
 
 function ListProductUser() {
     const [list, setList] = useState([]);
@@ -10,6 +12,7 @@ function ListProductUser() {
             setList(data.data)
         })
     }, [])
+    const {addToCart} = useCart()
     return (
         <div className="row">
             <div className="col-12"><h4>Top Product</h4>
@@ -22,8 +25,10 @@ function ListProductUser() {
                                     <div className="card-body">
                                         <h5 className="card-title">{item.name}</h5>
                                         <p className="card-text">{item.category}</p>
-                                        <p className="card-text">{item.price}</p>
-                                        <Link to={'/cart/' + item.id}>Add ShoppingCart</Link>
+                                        <p className="card-text">{formatCurrency(item.price)}</p>
+                                        <button className='btn-add-to-cart' onClick={() => addToCart(item)}>Thêm vào giỏ
+                                            hàng
+                                        </button>
                                     </div>
                                 </div>
                             </div>
